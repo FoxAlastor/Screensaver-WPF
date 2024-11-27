@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Gma.System.MouseKeyHook, Version=5.7.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MouseKeyHook.5.7.1\lib\net472\Gma.System.MouseKeyHook.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -71,11 +74,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Data.cs" />
+    <Compile Include="GlobalHook.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="ScreenSaverItem.xaml.cs">
       <DependentUpon>ScreenSaverItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TimerManager.cs" />
     <Compile Include="ViewModalBase.cs" />
     <Compile Include="WpfScreen.cs" />
     <Page Include="MainWindow.xaml">
@@ -123,5 +127,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

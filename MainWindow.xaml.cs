@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Screensaver
 {
@@ -25,12 +26,15 @@ namespace Screensaver
         {
             InitializeComponent();
         }
+
         private void Window_Closing(object sender, CancelEventArgs e)
         {
+            TimerManager.StopTimer();
             foreach (var item in Screensaver.App.WindowItems)
             {
                 item.Close();
             }
+            base.OnClosed(e);
         }
     }
 }

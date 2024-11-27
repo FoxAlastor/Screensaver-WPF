@@ -5,4 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Screensaver"
         mc:Ignorable="d"
-        WindowStyle="None"  Background="Black" ResizeMode="NoResize" Topmost="True" />
+        WindowStyle="None"  
+        Background="Black" 
+        ResizeMode="NoResize" 
+        ShowInTaskbar="False" 
+        Topmost="True" 
+        />

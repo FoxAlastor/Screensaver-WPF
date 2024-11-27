@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -13,65 +14,31 @@ namespace Screensaver
         public MainViewModel()
         {
             PreviewScreenС = new RelayCommand(PreviewScreen);
-
-
+            TimerManager.InitializeTimer(IntervalValue);
+            GlobalHook.InitializeGlobalHook();
         }
-
+        public ICommand PreviewScreenС { get; set; }
         private void PreviewScreen(object obj)
         {
+            TimerManager.StopTimer();
+            GlobalHook.CloseGlobalHook();
+            App.StartScreenSaverWindow();
 
 
+            GlobalHook.InitializeGlobalHook();
 
         }
 
-        public ICommand PreviewScreenС { get; set; }
-
-
-        private int _changeScreenSaverComBox;
-
-        public int ChangeScreenSaverComBox
+        private int _intervalValue = 1;
+        public int IntervalValue
         {
-            get => _changeScreenSaverComBox;
+            get => _intervalValue;
             set
             {
-                _changeScreenSaverComBox = value;
+                _intervalValue = value;
+                TimerManager.Interval = value;
                 OnPropertyChanged();
             }
         }
-
-
-        private int _changeIntervalScrollBar;
-
-        public int ChangeIntervalScrollBar
-        {
-            get => _changeIntervalScrollBar;
-            set
-            {
-                _changeIntervalScrollBar = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private int _intervalTextBox;
-
-        public int IntervalTextBox
-        {
-            get => _intervalTextBox;
-            set
-            {
-                _intervalTextBox = value;
-                OnPropertyChanged();
-            }
-        }
-
-
-
-
-
-
-
-
-
-
     }
 }
