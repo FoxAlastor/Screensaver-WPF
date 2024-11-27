@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Screensaver"
         mc:Ignorable="d"
-        Title="ScreenSaver" Height="150" Width="200" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="ScreenSaver" Height="150" Width="200" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
     <Grid>
         <DockPanel LastChildFill="False" >
             <StackPanel Margin="5,5,5,5">
@@ -20,7 +20,7 @@
                 <DockPanel Margin="0, 10, 0, 0">
                     <Label VerticalAlignment="Center" Content="Інтервал" ></Label>
                     <DockPanel>
-                        <TextBox x:Name="IntervalTextBox"  TextWrapping="Wrap"  Width="60" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" IsReadOnly="True"/>
+                        <TextBox x:Name="IntervalTextBox"   TextWrapping="Wrap"  Width="60" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" IsReadOnly="True"/>
                         <ScrollBar x:Name="ChangeIntervalScrollBar"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="10"/>
                     </DockPanel>
                 </DockPanel>

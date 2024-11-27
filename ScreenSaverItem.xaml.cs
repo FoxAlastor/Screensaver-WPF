@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Hurricane.Utilities;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,26 +12,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 
 namespace Screensaver
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для ScreenSaverItem.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ScreenSaverItem : System.Windows.Window
     {
-        public MainWindow()
+        public ScreenSaverItem(WpfScreen screen)
         {
             InitializeComponent();
-        }
-        private void Window_Closing(object sender, CancelEventArgs e)
-        {
-            foreach (var item in Screensaver.App.WindowItems)
-            {
-                item.Close();
-            }
+
+            this.Width = screen.DeviceBounds.Width;
+            this.Height = screen.DeviceBounds.Height;
+
+            this.Left = screen.DeviceBounds.X;
+            this.Top = screen.DeviceBounds.Y;
+
         }
     }
 }
