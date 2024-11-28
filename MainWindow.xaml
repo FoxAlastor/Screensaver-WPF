@@ -5,23 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Screensaver"
         mc:Ignorable="d"
-        Title="ScreenSaver" Height="150" Width="200" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="ScreenSaver" Height="150" Width="200" 
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" 
+        Closing="Window_Closing" WindowStyle="ThreeDBorderWindow">
+
+
+
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+
     <Grid>
         <DockPanel LastChildFill="False" >
             <StackPanel Margin="5,5,5,5">
                 <StackPanel>
                     <Label Content="Заставка" VerticalContentAlignment="Bottom"/>
                     <DockPanel>
-                        <Button x:Name="PreviewScreenButton" Content="Перегляд" DockPanel.Dock="Right"  Height="20" Width="70"/>
-                        <ComboBox x:Name="ChangeScreenSaverComBox" DockPanel.Dock="Left" Width="120"/>
+                        <Button x:Name="PreviewScreenButton" Content="Перегляд" Command="{Binding PreviewScreenС}"  DockPanel.Dock="Right"  Height="20" Width="70"/>
+                        <ComboBox x:Name="ChangeScreenSaverComBox"  DockPanel.Dock="Left" Width="120"/>
                     </DockPanel>
 
                 </StackPanel>
                 <DockPanel Margin="0, 10, 0, 0">
                     <Label VerticalAlignment="Center" Content="Інтервал" ></Label>
                     <DockPanel>
-                        <TextBox x:Name="IntervalTextBox"  TextWrapping="Wrap"  Width="60" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" IsReadOnly="True"/>
-                        <ScrollBar x:Name="ChangeIntervalScrollBar"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="10"/>
+                        <TextBox x:Name="IntervalTextBox" 
+                                 Width="60"   
+                                 Text="{Binding IntervalValue, UpdateSourceTrigger=PropertyChanged}"
+                                 HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" IsReadOnly="True"/>
+                        <ScrollBar x:Name="ChangeIntervalScrollBar"
+                                   HorizontalAlignment="Left" 
+                                   VerticalAlignment="Top" 
+                                   Height="30" 
+                                   Width="10"
+                                   Minimum="1"
+                                   Maximum="60"
+                                   SmallChange="1"
+                                   LargeChange="10"
+                                   Value="{Binding IntervalValue}" />
                     </DockPanel>
                 </DockPanel>
             </StackPanel>
