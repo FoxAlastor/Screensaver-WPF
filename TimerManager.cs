@@ -50,8 +50,6 @@ namespace Screensaver
 
         private static void OnTimerTick(object sender, EventArgs e)
         {
-            Console.WriteLine($"{(DateTime.Now - _lastActivityTime).TotalSeconds} >= {_interval * 60}");
-
             if ((DateTime.Now - _lastActivityTime).TotalSeconds >= _interval * 60)
             {
                 _timer.Stop();

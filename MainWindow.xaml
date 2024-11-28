@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Screensaver"
         mc:Ignorable="d"
-        Title="ScreenSaver" Height="150" Width="200" 
-        ResizeMode="NoResize" 
+        Title="ScreenSaver" Height="150" Width="260" 
+        ResizeMode="CanMinimize" 
         WindowStartupLocation="CenterScreen" 
         Closing="Window_Closing" WindowStyle="ThreeDBorderWindow">
 
@@ -18,7 +18,7 @@
 
     <Grid>
         <DockPanel LastChildFill="False" >
-            <StackPanel Margin="5,5,5,5">
+            <StackPanel Margin="5,0,5,5">
                 <StackPanel>
                     <Label Content="Заставка" VerticalContentAlignment="Bottom"/>
                     <DockPanel>
